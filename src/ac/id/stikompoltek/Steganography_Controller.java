@@ -42,11 +42,11 @@ public class Steganography_Controller {
 	private String stat_name = "";
 
 	/*
-	 * Constructor to initialize view, model and environment variables
+	 * Konstruktor untuk inisialisasi tampilan, model dan beberapa variable
 	 * 
-	 * @param aView A GUI class, to be saved as view
+	 * @param aView Kelas tampilan untuk tampilan interfacenya
 	 * 
-	 * @param aModel A model class, to be saved as model
+	 * @param aModel Kelas model(Steganography) sebagai data yang akan diolah
 	 */
 	public Steganography_Controller(Steganography_View aView,
 			Steganography aModel) {
@@ -103,7 +103,7 @@ public class Steganography_Controller {
 	}
 
 	/*
-	 * Encode Class - handles the Encode menu item
+	 * Kelas Encode - Mengatasi menu "Encode" jika diklik
 	 */
 	private class Encode implements ActionListener {
 		/*
@@ -117,7 +117,7 @@ public class Steganography_Controller {
 	}
 
 	/*
-	 * Decode Class - handles the Decode menu item
+	 * Kelas Decode - Mengatasi menu "Decode" jika diklik
 	 */
 	private class Decode implements ActionListener {
 		/*
@@ -155,7 +155,7 @@ public class Steganography_Controller {
 	}
 
 	/*
-	 * Exit Class - handles the Exit menu item
+	 * Kelas Exit - Mengatasi menu "Exit" jika diklik
 	 */
 	private class Exit implements ActionListener {
 		/*
@@ -169,7 +169,7 @@ public class Steganography_Controller {
 	}
 
 	/*
-	 * Encode Button Class - handles the Encode Button item
+	 * Kelas Tombol Encode - Mengatasi tombol "Encode" jika diklik
 	 */
 	private class EncodeButton implements ActionListener {
 		/*
@@ -222,7 +222,7 @@ public class Steganography_Controller {
 	}
 
 	/*
-	 * Decode Button Class - handles the Decode Button item
+	 * Kelas Tombol Decode - Mengatasi tombol "Decode" jika diklik
 	 */
 	private class DecodeButton implements ActionListener {
 		/*
@@ -248,7 +248,7 @@ public class Steganography_Controller {
 	}
 
 	/*
-	 * Updates the variables to an initial state
+	 * Menginisialisasi (reset) tampilan kembali keawal
 	 */
 	public void update() {
 		input.setText(""); // clear textarea
@@ -258,7 +258,8 @@ public class Steganography_Controller {
 	}
 
 	/*
-	 * Main Method for testing
+	 * Method utama
+	 * Untuk testing
 	 */
 	public static void main(String args[]) {
 		new Steganography_Controller(new Steganography_View("Steganography"),

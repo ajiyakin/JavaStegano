@@ -18,10 +18,8 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
 public class Steganography_View extends JFrame {
-	/**
-	 * 
-	 */
 	private static final long serialVersionUID = 1L;
+	
 	// sie variables for window
 	private static int WIDTH = 500;
 	private static int HEIGHT = 400;
@@ -39,9 +37,9 @@ public class Steganography_View extends JFrame {
 	private JMenuItem exit;
 
 	/*
-	 * Constructor for Steganography_View class
+	 * Konstruktor untuk kelas tampilan steganography
 	 * 
-	 * @param name Used to set the title on the JFrame
+	 * @param name Digunakan untuk setting judul frame-nya
 	 */
 	public Steganography_View(String name) {
 		// set the title of the JFrame

@@ -12,25 +12,25 @@ import javax.swing.JOptionPane;
 public class Steganography {
 
 	/*
-	 * Steganography Empty Constructor
+	 * Steganography Konstruktor kosong
 	 */
 	public Steganography() {
 	}
 
 	/*
-	 * Encrypt an image with text, the output file will be of type .png
+	 * Enkripsi gambar dengan teks, hasilnya berupa file gambar berekstensi *.png
 	 * 
-	 * @param path The path (folder) containing the image to modify
+	 * @param path Alamat folder gambar (path) yang akan dimodifikasi (dimasuki pesan)
 	 * 
-	 * @param original The name of the image to modify
+	 * @param original Nama dari gambar yang akan dimodifikasi (dimasuki pesan)
 	 * 
-	 * @param ext1 The extension type of the image to modify (jpg, png)
+	 * @param ext1 Type ekstensi dari gambar yang akan dimodifikasi (dimasukki pesan) -> jpg, png
 	 * 
-	 * @param stegan The output name of the file
+	 * @param stegan Nama file hasil penyisipan pesan (gambar hasil)
 	 * 
-	 * @param message The text to hide in the image
+	 * @param message Pesan teks yang akan disembunyikan digambar
 	 * 
-	 * @param type integer representing either basic or advanced encoding
+	 * @param type integer merepresentasikan salah satu dari encoding, basic atau advance
 	 */
 	public boolean encode(String path, String original, String ext1,
 			String stegan, String message) {
@@ -46,15 +46,14 @@ public class Steganography {
 	}
 
 	/*
-	 * Decrypt assumes the image being used is of type .png, extracts the hidden
-	 * text from an image
+	 * Dekripsi mengasumsikan gambar yang digunakan adalah *.png
+	 * Menggali pesan dari sebuah gambar
 	 * 
-	 * @param path The path (folder) containing the image to extract the message
-	 * from
+	 * @param path Alamat folder dari gambar yang mengandung pesan yang akan didecode
 	 * 
-	 * @param name The name of the image to extract the message from
+	 * @param name Nama dari gambar yang akan digali pesannya
 	 * 
-	 * @param type integer representing either basic or advanced encoding
+	 * @param type integer Merepresentasikan tipe encode-nya, basic atau advance
 	 */
 	public String decode(String path, String name) {
 		byte[] decode;
@@ -73,26 +72,26 @@ public class Steganography {
 	}
 
 	/*
-	 * Returns the complete path of a file, in the form: path\name.ext
+	 * Mengembalikan alamat (path) komplit dari file, dengan format : path\nama_file.ext
 	 * 
-	 * @param path The path (folder) of the file
+	 * @param path Alamat (path) dari folder file
 	 * 
-	 * @param name The name of the file
+	 * @param name Nama file
 	 * 
-	 * @param ext The extension of the file
+	 * @param ext Extensi file
 	 * 
-	 * @return A String representing the complete path of a file
+	 * @return Mengembalikan string dari alamat(path) file
 	 */
 	private String image_path(String path, String name, String ext) {
 		return path + "/" + name + "." + ext;
 	}
 
 	/*
-	 * Get method to return an image file
+	 * Method get untuk mengambil gambar yang sedang diolah
 	 * 
-	 * @param f The complete path name of the image.
+	 * @param f Alamat (path) komplit dari gambar
 	 * 
-	 * @return A BufferedImage of the supplied file path
+	 * @return Mengembalikan gambar (buffer / BufferedImage) yang diambil dari path yang diberikan
 	 * 
 	 * @see Steganography.image_path
 	 */
@@ -110,15 +109,15 @@ public class Steganography {
 	}
 
 	/*
-	 * Set method to save an image file
+	 * Method set untuk menyimpan file gambar
 	 * 
-	 * @param image The image file to save
+	 * @param image File gambar yang hendak disimpan
 	 * 
-	 * @param file File to save the image to
+	 * @param file File dimana gambar tersebut akan disimpan 
 	 * 
-	 * @param ext The extension and thus format of the file to be saved
+	 * @param ext Ekstensi dari gambar yang akan disimpan menjadi file
 	 * 
-	 * @return Returns true if the save is succesful
+	 * @return Mengembalikan true jika berhasil simpan gambar di file yang diinginkan
 	 */
 	private boolean setImage(BufferedImage image, File file, String ext) {
 		try {
@@ -133,13 +132,13 @@ public class Steganography {
 	}
 
 	/*
-	 * Handles the addition of text into an image
+	 * Bertanggung jawab menambahkan text kedalam gambar
 	 * 
-	 * @param image The image to add hidden text to
+	 * @param image Gambar yang akan ditambahi text
 	 * 
-	 * @param text The text to hide in the image
+	 * @param text Text yang akan disisipkan kedalam gambar
 	 * 
-	 * @return Returns the image with the text embedded in it
+	 * @return Mengembalikan gambar dengan teks yang telah disisipkan didalamnya
 	 */
 	private BufferedImage add_text(BufferedImage image, String text) {
 		// convert all items to byte arrays: image, message, message length
@@ -159,13 +158,12 @@ public class Steganography {
 	}
 
 	/*
-	 * Creates a user space version of a Buffered Image, for editing and saving
-	 * bytes
 	 * 
-	 * @param image The image to put into user space, removes compression
-	 * interferences
+	 * Membuat ruang atau tempat untuk gambar. Untuk editing dan saving dalam bentuk byte
 	 * 
-	 * @return The user space version of the supplied image
+	 * @param image Gambar yang akan dimasukkan kedalam ruang yang telah disediakan, dan hapus kembali ruang yang tadi disediakan
+	 * 
+	 * @return Mengembalikan ruang yang telah diisi gambar
 	 */
 	private BufferedImage user_space(BufferedImage image) {
 		// create new_img with the attributes of image
@@ -178,11 +176,11 @@ public class Steganography {
 	}
 
 	/*
-	 * Gets the byte array of an image
+	 * Mengambil gambar dalam bentu array yang berisi byte dari gambar tersebut
 	 * 
-	 * @param image The image to get byte data from
+	 * @param image Gambar yang ingin diambil byte-nya
 	 * 
-	 * @return Returns the byte array of the image supplied
+	 * @return Mengembalikan array berisi byte dari gambar yang dimasukkan
 	 * 
 	 * @see Raster
 	 * 
@@ -197,11 +195,11 @@ public class Steganography {
 	}
 
 	/*
-	 * Gernerates proper byte format of an integer
+	 * Meng-generate format byte dari sebuah integer
 	 * 
-	 * @param i The integer to convert
+	 * @param i Integer yang ingin diambil nilai byte-nya
 	 * 
-	 * @return Returns a byte[4] array converting the supplied integer into
+	 * @return Mengembalikan array berisi byte[4] yang dikonversi dari integer yang dimasukkan
 	 * bytes
 	 */
 	private byte[] bit_conversion(int i) {
@@ -221,15 +219,15 @@ public class Steganography {
 	}
 
 	/*
-	 * Encode an array of bytes into another array of bytes at a supplied offset
+	 * Meng-encode sebuat array yang berisi byte kedalam array bytes yang diinginkan (diinputkan)
 	 * 
-	 * @param image Array of data representing an image
+	 * @param image Data array dari sebuah gambar
 	 * 
-	 * @param addition Array of data to add to the supplied image data array
+	 * @param array tambahan dari data yang ingin ditambahkan kedalam data array gambar
 	 * 
-	 * @param offset The offset into the image array to add the addition data
+	 * @param offset Offset array gambar untuk menambahkan data tambahan
 	 * 
-	 * @return Returns data Array of merged image and addition data
+	 * @return Mengembalikan data array dari hasil array gambar dan array data tambahan
 	 */
 	private byte[] encode_text(byte[] image, byte[] addition, int offset) {
 		// check that the data + offset will fit in the image
@@ -260,11 +258,11 @@ public class Steganography {
 	}
 
 	/*
-	 * Retrieves hidden text from an image
+	 * Menggali text tersembunyi dari gambar
 	 * 
-	 * @param image Array of data, representing an image
+	 * @param image Data array, merepresentasikan sebuah gambar
 	 * 
-	 * @return Array of data which contains the hidden text
+	 * @return Mengembalikan data array yang mengandung text tersembunyi
 	 */
 	private byte[] decode_text(byte[] image) {
 		int length = 0;

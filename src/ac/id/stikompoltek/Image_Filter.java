@@ -4,22 +4,22 @@ import java.io.File;
 
 public class Image_Filter extends javax.swing.filechooser.FileFilter {
 	/*
-	 * Determines if the extension is of the defined types
+	 * Hanya pilih file yang berkestensi *.jpg dan/atau *.png (file gambar)
 	 * 
-	 * @param ext Extension of a file
+	 * @param ext Ekstensi file yang dipilih
 	 * 
-	 * @return Returns true if the extension is 'jpg' or 'png'
+	 * @return Mengembalikan true jika ekstensi file yang dipilih adalah *.jpg atau *.png
 	 */
 	protected boolean isImageFile(String ext) {
 		return (ext.equals("jpg") || ext.equals("png"));
 	}
 
 	/*
-	 * Determines if the file is a directory or accepted extension
+	 * Periksa direktori file dan ekstensi file yang diperbolehkan
 	 * 
-	 * @param f The File to run the directory/proper extension check on
-	 * 
-	 * @return Returns true if the File is a directory or accepted extension
+	 * @param f File yang akan diperiksa
+	 *
+	 * @return Mengembalikan true jika File adalah direktori yang valid dan ekstensinya diperbolehkan
 	 */
 	public boolean accept(File f) {
 		if (f.isDirectory()) {
@@ -34,20 +34,20 @@ public class Image_Filter extends javax.swing.filechooser.FileFilter {
 	}
 
 	/*
-	 * Supplies File type description
+	 * Mengambil pesan deskripsi file (apakah disupport atau tidak)
 	 * 
-	 * @return Returns the String description
+	 * @return Mengembalikan deskripsi pesan dari file yang terpilih
 	 */
 	public String getDescription() {
 		return "Supported Image Files";
 	}
 
 	/*
-	 * Determines the Extension
+	 * Menentukan ekstensi file yang dipilih
 	 * 
-	 * @param f File to return the extension of
+	 * @param f File yang ingin diperiksa ekstensinya
 	 * 
-	 * @return Returns the String representing the extension
+	 * @return Mengembalikan pesan (berupa String) representasi dari ekstensi file tersebut. Misal : .jpg atau .png
 	 */
 	protected static String getExtension(File f) {
 		String s = f.getName();
